@@ -12,6 +12,7 @@ const corsOptions = require('./config/corsOptions') // cross origin resource
 const connectDB = require("./config/dbCon")
 const mongoose = require("mongoose")
 const { logEvents } = require('./middleware/logger')
+
 const enviromentTimeDataModel = require("./models/enviromentTimeData");
 const userModel = require("./models/users");
 const boxesModel = require("./models/boxes");
@@ -32,6 +33,8 @@ app.use('/', express.static(path.join(__dirname, 'public'))); //this tells the s
 
 app.use('/', require('./routes/root'))
 app.use('/users', require('./routes/userRoutes'))
+app.use('/boxes', require('./routes/boxRoutes'))
+app.use('/enviromentData', require('./routes/enviromentDataRoutes'))
 
 
 app.all('*', (req, res) => { //'*' represents a catch all that does not get routed

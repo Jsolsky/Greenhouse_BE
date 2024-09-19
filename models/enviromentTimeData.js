@@ -17,8 +17,9 @@ const enviromentTimeDataSchema = new mongoose.Schema({
     //     type: Number,
     //     reqired: true,
     // }
-}, { collection: "enviromentTimeData"});
+}, { collection: "enviromentTimeData", versionKey : false});
 
 
 const enviromentTimeDataModel = mongoose.model("enviromentTimeData", enviromentTimeDataSchema);
+
 module.exports = enviromentTimeDataModel;
