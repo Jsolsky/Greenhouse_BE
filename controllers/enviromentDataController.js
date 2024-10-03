@@ -12,13 +12,9 @@ const createEnviromentData = asyncHandler (async (req, res) => {
         "temperature" : req.body["temperature"]
     }
     
-    console.log(req.body)
-    console.log(docInsert)
-    
     const data = await enviromentData.create(docInsert)
     
     if (data) { //created 
-        console.log("Success")
         res.status(201).json({ message: 'Enviroment Data Created' })
     } else {
         console.log("Failed")

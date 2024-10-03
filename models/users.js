@@ -5,15 +5,19 @@ const usersSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    "name": {
+    "password": {
         type: String,
         required: true,
     },
+    "name": {
+        type: String,
+        // required: true,
+    },
     "userId" : {
         type: Number,
-        required: true,
+        // required: true,
     },
-}, {collection : "users"});
+}, {collection : "users", versionKey : false});
 
 const userModel = mongoose.model("users", usersSchema);
 module.exports = userModel;
