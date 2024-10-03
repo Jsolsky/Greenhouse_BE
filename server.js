@@ -32,6 +32,7 @@ app.use(cookieParser()) //policy error if cookies are used incorrectly
 app.use('/', express.static(path.join(__dirname, 'public'))); //this tells the server where to grab static files (e.g. css)
 
 app.use('/', require('./routes/root'))
+app.use('/auth', require('./routes/authRoutes'))
 app.use('/users', require('./routes/userRoutes'))
 app.use('/boxes', require('./routes/boxRoutes'))
 app.use('/enviromentData', require('./routes/enviromentDataRoutes'))

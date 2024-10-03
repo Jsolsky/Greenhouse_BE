@@ -9,7 +9,7 @@ const boxesSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-}, {collection : "boxes"});
+}, {collection : "boxes", versionKey : false});
 
 const boxesModel = mongoose.model("boxes", boxesSchema);
 module.exports = boxesModel;
