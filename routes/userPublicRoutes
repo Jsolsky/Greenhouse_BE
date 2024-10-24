@@ -1,0 +1,7 @@
+const express = require('express')
+const router = express.Router()
+const userPublicController = require('../controllers/userPublicController')
+
+router.route("/").post(userPublicController.createNewUser) //Create 
+
+module.exports = router

@@ -30,12 +30,13 @@ app.use(express.json()) // this lets the server recieve and send json
 app.use(cookieParser()) //policy error if cookies are used incorrectly
 
 app.use('/', express.static(path.join(__dirname, 'public'))); //this tells the server where to grab static files (e.g. css)
-
 app.use('/', require('./routes/root'))
-app.use('/auth', require('./routes/authRoutes'))
-app.use('/users', require('./routes/userRoutes'))
+app.use('/userSettings', require('./routes/userProtectedRoutes'))
+app.use('/user', require('./routes/userPublicRoutes'))
 app.use('/boxes', require('./routes/boxRoutes'))
 app.use('/enviromentData', require('./routes/enviromentDataRoutes'))
+
+app.use('/auth', require('./routes/authRoutes'))
 
 
 app.all('*', (req, res) => { //'*' represents a catch all that does not get routed
@@ -51,7 +52,7 @@ app.all('*', (req, res) => { //'*' represents a catch all that does not get rout
     }
 }) 
 
-app.use(errorHandler) // 
+app.use(errorHandler)
 
 try {
     connectDB()
