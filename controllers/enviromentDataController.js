@@ -2,9 +2,9 @@ const enviromentData = require("../models/enviromentTimeData")
 // const Boxes = require("../models/boxes")
 const asyncHandler = require('express-async-handler')
 
-// @desc create new boxes
-// @route post /boxes
-// @access Private
+// @desc create new enviroment data
+// @route post /enviromentData
+// @access Public?
 const createEnviromentData = asyncHandler (async (req, res) => {
     docInsert = { 
         "boxId" : req.body["boxId"], 
@@ -21,7 +21,24 @@ const createEnviromentData = asyncHandler (async (req, res) => {
         res.status(400).json({ message: 'Invalid user data received' })
     }
 })
-   
+
+// @desc read data for a specific box
+// @route post /enviromentData/boxData
+// @access Private
+const readEnviromentData = asyncHandler (async (req, res) => {
+    const boxId = req.body["boxId"]
+
+    const data = await enviromentData.find({"boxId":boxId})
+    
+    if (data) { 
+        res.status(201).json(data) 
+    } else {
+        console.log("Failed")
+        res.status(400).json({ message: 'Invalid request' })
+    }
+})
+
 module.exports = {
+    readEnviromentData,
     createEnviromentData
 }
