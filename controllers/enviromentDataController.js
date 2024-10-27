@@ -23,10 +23,10 @@ const createEnviromentData = asyncHandler (async (req, res) => {
 })
 
 // @desc read data for a specific box
-// @route post /enviromentData/boxData
+// @route get /enviromentData/boxData
 // @access Private
 const readEnviromentData = asyncHandler (async (req, res) => {
-    const boxId = req.body["boxId"]
+    const boxId = req.query.boxId;
 
     const data = await enviromentData.find({"boxId":boxId})
     

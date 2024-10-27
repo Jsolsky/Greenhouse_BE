@@ -3,7 +3,7 @@ const router = express.Router()
 const enviromentDataController = require('../controllers/enviromentDataController.js')
 
 router.route("/boxData")
-    .post(enviromentDataController.readEnviromentData) //Read
+    .get(enviromentDataController.readEnviromentData) //Read
 
 router.route("/")
     .post(enviromentDataController.createEnviromentData) //Create 

@@ -8,15 +8,7 @@ const usersSchema = new mongoose.Schema({
     "password": {
         type: String,
         required: true,
-    },
-    "name": {
-        type: String,
-        // required: true,
-    },
-    "userId" : {
-        type: Number,
-        // required: true,
-    },
+    }
 }, {collection : "users", versionKey : false});
 
 const userModel = mongoose.model("users", usersSchema);
