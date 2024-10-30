@@ -28,7 +28,7 @@ const createEnviromentData = asyncHandler (async (req, res) => {
 const readEnviromentData = asyncHandler (async (req, res) => {
     const boxId = req.query.boxId;
 
-    const data = await enviromentData.find({"boxId":boxId})
+    const data = await enviromentData.find({"boxId":boxId}).sort({"time":-1})
     
     if (data) { 
         res.status(201).json(data) 
